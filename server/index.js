@@ -28,7 +28,7 @@ app.use(initSession);
 //writer endpoints
 app.post('/api/login', wc.login); 
 app.post('/api/signup', wc.signup); 
-app.get('/api/writer', authCheck, wc.getUser); 
+app.get('/api/writer', authCheck, wc.getWriter); 
 app.delete('/api/logout', wc.logout); 
 
 //entry endpoints

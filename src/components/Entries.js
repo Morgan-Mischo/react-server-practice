@@ -60,7 +60,7 @@ class Entries extends Component {
 
 function mapStateToProps(state) {
   return {
-    userId: state.user.user.id,
+    writerId: state.writer.writer.id,
     ...state.entries
   };
 }

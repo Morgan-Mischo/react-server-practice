@@ -48,19 +48,19 @@ export default function(state = initialState, action) {
     case LOGIN + "_FULFILLED":
       return {
         ...state,
-        user: payload,
+        writer: payload,
         redirect: false,
         error: false,
       };
     case LOGIN + "_REJECTED":
       return { ...state, error: payload };
     case LOGOUT + "_FULFILLED":
-      return { ...state, user: {}, redirect: true, error: false };
+      return { ...state, writer: {}, redirect: true, error: false };
     case SIGNUP + "_FULFILLED":
       return {
         ...state,
         redirect: false,
-        user: payload,
+        writer: payload,
         error: false,
       };
     case SIGNUP + "_REJECTED":

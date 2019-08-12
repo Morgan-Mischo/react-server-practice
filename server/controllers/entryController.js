@@ -2,7 +2,7 @@ module.exports = {
     async getEntries(req, res) {
         let { writerId } = req.params; 
         const db = req.app.get('db'); 
-        let entries = await db.get_entries_by_user(+writerId); 
+        let entries = await db.get_entries_by_writer(+writerId); 
         res.send(entries); 
     }, 
     async deleteEntry(req, res) {
@@ -20,7 +20,7 @@ module.exports = {
           +entryId,
           newTitle,
           newContent,
-          req.session.user.id
+          req.session.writer.id
         ]);
         res.send(entry);
       },

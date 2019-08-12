@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../redux/userReducer';
+import { logout } from '../redux/writerReducer';
 import { Link } from 'react-router-dom';
 
 function Header(props) {
   console.log(props);
   return (
     <div className="header">
-      {props.user.loggedIn ? (
+      {props.writer.loggedIn ? (
         <button onClick={props.logout} className="btn warning-btn">
           Logout
         </button>
@@ -26,7 +26,7 @@ function Header(props) {
 }
 
 function mapStateToProps(state) {
-  return state.user;
+  return state;
 }
 
 export default connect(

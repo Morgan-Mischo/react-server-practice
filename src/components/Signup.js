@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { signup } from '../redux/userReducer';
+import { signup } from '../redux/writerReducer';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -17,14 +17,14 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
 
-  signupUser = () => {
+  signupWriter = () => {
     this.props.signup(this.state.username, this.state.password);
   };
 
   render() {
     let { username, password } = this.state;
-    let { user } = this.props;
-    if (user.loggedIn) return <Redirect to="/" />;
+    let { writer } = this.props;
+    if (writer.loggedIn) return <Redirect to="/" />;
     return (
       <div className="display-container">
         <div className="box-medium">
@@ -48,7 +48,7 @@ class Signup extends Component {
               className="input"
             />
           </div>
-          <button onClick={this.signupUser} className="btn normal-btn">
+          <button onClick={this.signupWriter} className="btn normal-btn">
             Signup
           </button>
         </div>
@@ -60,7 +60,7 @@ class Signup extends Component {
 }
 
 function mapStateToProps(state) {
-  return state.user;
+  return state.writer;
 }
 
 export default connect(

@@ -25,14 +25,14 @@ module.exports = {
     let salt = await bcrypt.genSalt(saltRounds);
     let hash = await bcrypt.hash(password, salt);
     let [writer] = await db.create_writer([username, hash]);
-    req.session.user = { username: writer.username, id: writer.id, loggedIn: true };
-    res.send(req.session.user);
+    req.session.writer = { username: writer.username, id: writer.id, loggedIn: true };
+    res.send(req.session.writer);
   },
   logout(req, res) {
     req.session.destroy();
     res.sendStatus(200);
   },
-  getUser(req, res) {
+  getWriter(req, res) {
     res.send(req.session.writer);
   }
 };
